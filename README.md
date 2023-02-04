@@ -1,4 +1,7 @@
-# Sentiment Analysis Classifier of BLM Movement Tweets
+# Sentiment Classifier of BLM Movement Tweets
+
+### Summary of results
+
 
 ### Background
 Summer 2020 saw the rise of support for #BlackLivesMatter and social justice movements after the murder of George Floyd. While in-person protests supporting the #BLM movement were held during the coronavirus epidemic in every major US city, social media sites — including Twitter — were also awash with opinions about the movement. When Twitter users read tweets about the #BLM movement, and the contemporaneous #BlueLivesMatter movement in support of policing efforts, they might be interested in categorizing tweets based on their attitudes toward the #BLM and #BlueLivesMatter movements.
@@ -23,7 +26,10 @@ Summer 2020 saw the rise of support for #BlackLivesMatter and social justice mov
   - 218 tweets labelled as 'neither'
   
 
+### Exploratory Data Analysis
 
-## Data labeling criteria
+### Comparison of Classifiers
+
+### Future Work
 
 
