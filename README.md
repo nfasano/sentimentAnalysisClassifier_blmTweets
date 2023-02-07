@@ -7,7 +7,11 @@
 The summer of 2020 saw the rise of support for #BlackLivesMatter and social justice movements after the murder of George Floyd. While in-person protests supporting the #BLM movement were held during the coronavirus epidemic in every major US city, social media sites — including Twitter — were also awash with opinions about the movement. When Twitter users read tweets about the #BLM movement, and the contemporaneous #BlueLivesMatter movement in support of policing efforts, they might be interested in categorizing tweets based on their attitudes toward the #BLM and #BlueLivesMatter movements.
 
 
-### Data (train.csv and test.csv)
+### Dataset Overview 
+
+### Files
+  - train.csv (8109 total tweets)
+  - test.csv (2029 total tweets)
 
 #### Train/Test csv Column Headers
   - created_at: the date of the tweet
