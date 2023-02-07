@@ -18,7 +18,7 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
   - hashtags: the hashtags used in the tweet
   - text: text of the tweet
   - BLM: label for the tweet (positive, negative, or neither toward the BLM movement)
-     - Refer to the tweetLabelCriteria.pdf document for details on how labels were constructed
+     - Refer to the 'tweetLabelCriteria.pdf' document for details on how labels were constructed
 
 #### Total dataset (10,138 total tweets)
   - 7365 tweets labelled as 'positive'
