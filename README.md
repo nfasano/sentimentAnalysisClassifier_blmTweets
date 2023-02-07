@@ -36,6 +36,16 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
   - 218 tweets labelled as 'neither'
   
 ### Data cleaning and feature extraction
+#### Preprocessing of training and testing data
+    - Change emojis to words (import emoji)
+    - Remove 'RT' from tweet
+    - Remove capitalization
+    - Remove urls & user mentions from tweet
+    - Remove punctuation
+    - Remove stopwords (from nltk.corpus import stopwords)
+    - Perfom lemmatization on tokens (from nltk.stem import WordNetLemmatizer)
+    - Removed Tweets that were labelled as neither
+
 
 
 
