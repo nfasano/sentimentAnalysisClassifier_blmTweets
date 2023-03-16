@@ -38,7 +38,17 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
   - Removed Tweets that were labelled as neither
 
 ### Exploratory Data Analysis
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/wordCloud.jpg" alt="drawing" width="600"/> 
+</picture>
+</p>
 
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/histograms.jpg" alt="drawing" width="850"/> 
+</picture>
+</p>
 ### Form training and testing matrices
 
 ### Building models
