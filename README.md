@@ -49,6 +49,7 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/histograms.jpg" alt="drawing" width="850"/> 
 </picture>
 </p>
+
 ### Form training and testing matrices
 
 ### Building models
@@ -69,7 +70,7 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
 
 <p align="center">
 <picture>
-<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="850"/> 
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="750"/> 
 </picture>
 </p>
 
