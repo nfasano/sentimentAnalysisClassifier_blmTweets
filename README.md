@@ -67,6 +67,12 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
 |  Random Forest |    0.80  |    0.85   |   0.91 |   0.88   |   103  |   234  |   127  |  1347  |
 
 
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="850"/> 
+</picture>
+</p>
+
 ### Future Work
 
 
