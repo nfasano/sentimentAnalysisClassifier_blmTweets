@@ -74,5 +74,4 @@ Eight models were trained on the training dataset: KNN, M. Naive Bayes, Log. Reg
 </p>
 
 ### Future Work
-
-
+Build ensemble classifiers, bi-gram, and tf-idf instead of bag of words.
