@@ -50,7 +50,11 @@ Figure: Word clouds separated by tweet classification. The size of the word indi
 Figure: Histograms of (a) the number of tweets labeled as positive or negative towards (b) the number of times the word "make" appeared in a negative or positive tweet (c) the number of times the word "alllivesmatter" appeared in a negative or positive tweet (d) the number of times the word "justice" appeared in a negative or positive tweet. Common words like "make" have the same distribution as the entire dataset distribution. However, other words such as "alllivesmatter" or "justice" are disproportionately labelled either negative or positive towards the #BLM movement, respectively.
 
 ### Forming the dataset for classification - pruning the vocabulary
-Using the motivation from the exploratory data analysis
+We used a bag of words representation using the training vocabulary.
+
+Using the motivation from the exploratory data analysis. 
+
+Finally, there is an option in the code to remove tweets with too few words (for example any tweets with less than 3 word) or too many words. I only removed a tweet if it had 0 words after pruning the vocabulary. 
 
 ### Comparison of Classifiers
 Eight models were trained on the training dataset: KNN, Multinomial Naive Bayes, Log. Reg., SVM (Lin), SVM (rbf), Complement Naive Bayes, LDA, and Random Forest.
