@@ -40,20 +40,21 @@ The summer of 2020 saw the rise of support for #BlackLivesMatter and social just
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/wordCloud.jpg" alt="drawing" width="600"/> 
 </picture>
 </p>
+Figure: Word clouds separated by tweet classification. The size of the word indicates the total amount of times the word appeared in a tweet compared to the entire dataset. The dataset was cleaned of common stop words and the phrase blacklivesmatter.  
 
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/histograms.jpg" alt="drawing" width="850"/> 
 </picture>
 </p>
+Figure: Histograms of (a) the number of tweets labeled as positive or negative towards (b) the number of times the word "make" appeared in a negative or positive tweet (c) the number of times the word "alllivesmatter" appeared in a negative or positive tweet (d) the number of times the word "justice" appeared in a negative or positive tweet. Common words like "make" have the same distribution as the entire dataset distribution. However, other words such as "alllivesmatter" or "justice" are disproportionately labelled either negative or positive towards the #BLM movement, respectively.
 
-### Form training and testing matrices
-
-### Building models
-Eight models were trained on the training dataset: KNN, M. Naive Bayes, Log. Reg., SVM (Lin), SVM (rbf), C. Naive Bayes, LDA, and Random Forest.
-5-Fold cross validation was used to determine hyperparameters at train time
+### Forming the dataset for classification - pruning the vocabulary
+Using the motivation from the exploratory data analysis
 
 ### Comparison of Classifiers
+Eight models were trained on the training dataset: KNN, Multinomial Naive Bayes, Log. Reg., SVM (Lin), SVM (rbf), Complement Naive Bayes, LDA, and Random Forest.
+5-Fold cross validation was used to determine hyperparameters at train time
 
 |   Classifier   | Accuracy | Precision | Recall | F1-score |   TN   |   FP   |   FN   |   TP   |
 |----------------|----------|-----------|--------|----------|--------|--------|--------|--------|
