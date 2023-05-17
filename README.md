@@ -88,7 +88,21 @@ Here we see that no model performed significantly better than naively assigning 
 </p>
 Figure: Precision-recall curve for all eight trained classifiers.
 
-Note that chatGPT had an accuracy of 76% when the testing tweets were fed into a chatGPT prompt without any preprocessing.
+Note that chatGPT had an accuracy of 76% when the testing tweets were fed into a chatGPT prompt without any preprocessing. This is still quite impressive given that this approach required no effort on my part - just copy and paste tweets into chatbot. Moreover, chatGPT will provide some level of reasoning for its response which can sometimes be quite coherent (but, of course, always taken with a grain of salt).
+
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt.png" alt="drawing" width="600"/> 
+</picture>
+</p>
+Figure: An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.
+
+<p align="center">
+<picture>
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt_individual_tweets.png" alt="drawing" width="600"/> 
+</picture>
+</p>
+Figure: Examples of chatGPT prompts used to classify a tweet as being positive or negative toward the #BLM movement and provide justification for its answer.
 
 ### Future Work
 Build ensemble classifiers, bi-gram, and tf-idf instead of bag of words.
