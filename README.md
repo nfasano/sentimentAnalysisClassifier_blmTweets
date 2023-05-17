@@ -97,6 +97,8 @@ Note that chatGPT had an accuracy of 76% when the testing tweets were fed into a
 </p>
 Figure: An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.
 
+
+
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt_individual_tweets.png" alt="drawing" width="600"/> 
