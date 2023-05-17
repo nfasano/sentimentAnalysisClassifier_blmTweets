@@ -1,7 +1,7 @@
 # Sentiment Classifier of BLM Movement Tweets
 
 ### Summary of results
-Eight binary classifier models were built to predict whether the sentiment of a tweet was positive or negative toward the Black Lives Matter (BLM) movement. It was found that no model performed significantly better than naively assigning all tweets a positive label (which would yield an accuracy of 80%). Logistic regression achieved the best performance on the held out test set with an accuracy of 83% and AUC of 0.79, but it was not substantially better than SVM (accuracy = 83%, auc = 0.75) or KNN (accuracy = 83%, AUC = 0.74). Naive Bayes had a low accuracy of 73%, but the highest precision at 92%, suggesting that an ensemble learning model may improve prediction accuracy.
+Eight binary classifier models were built to predict whether the sentiment of a tweet was positive or negative toward the Black Lives Matter (BLM) movement. It was found that no model performed significantly better than naively assigning all tweets a positive label (which would yield an accuracy of 81%). Logistic regression achieved the best performance on the held out test set with an accuracy of 83% and AUC of 0.79, but it was not substantially better than SVM (accuracy = 83%, auc = 0.75) or KNN (accuracy = 83%, AUC = 0.74). Naive Bayes had a low accuracy of 73%, but the highest precision at 92%, suggesting that an ensemble learning model may improve prediction accuracy.
 
 ### Introduction
 The summer of 2020 saw the rise of support for #BlackLivesMatter after the murder of George Floyd, with in-person protests supporting the #BLM movement being held during the coronavirus epidemic in every major US city. In addition to in-prson protest, social media sites — including Twitter — were also awash with opinions about the movement. When Twitter users read tweets about the #BLM movement, and the contemporaneous #BlueLivesMatter movement in support of policing efforts, they might be interested in categorizing tweets based on their attitudes toward the #BLM and #BlueLivesMatter movements. In this work, we use a dataset of 10,000+ labelled tweets pertaining to the #BLM movement to build a sentiment classifier that can predict whether a tweet was positive or negative toward the #BLM. After pre-processing of the dataset and exploratory data analysis which yielded insights on how to prune vocabulary (see details below), eight classifier models were built and comapared against one another (see comparison criteria below), including KNN, Multinomial Naive Bayes, Log. Reg., SVM (Lin), SVM (rbf), Complement Naive Bayes, LDA, and Random Forest. 5-fold cross validation was used for all hyperparameter selection.
@@ -33,10 +33,9 @@ The following preprocessing steps were taken for each tweet in the training and 
   - Removed Tweets that were labelled as neither
 
 ### Exploratory Data Analysis
+The following figure presents word clouds for negatively and positively labelled tweets. The size of the word indicates the total amount of times the word appeared in the entire dataset with that label. Prior to making these word clouds, the dataset was cleaned of common stop words and the phrase blacklivesmatter, which was the most frequent word in both datasets.
 
-The following figure presents word clouds for negatively and positively labelled tweets. The size of the word indicates the total amount of times the word appeared in the entire dataset. Prior to making these word clouds, the dataset was cleaned of common stop words and the phrase blacklivesmatter, which was the most frequent word in both datasets.
-
-Some words are frequently used in both positive and negative tweets such as the word "black". Other words are only commonly found in one of the two word clouds, such as the words "EricGarner" and "ICantBreath" which are frequently found in positively labelled tweets but not in negatively labelled tweets. Similarly, the word "BlueLivesMatter" is commonly found in negatively labelled tweets but not positively labelled tweets.
+In this figure, we observe that some words are frequently used in both positive and negative tweets such as the word "black". Other words are only commonly found in one of the two word clouds, such as the words "EricGarner" and "ICantBreath" which are commonly found in positively labelled tweets but not in negatively labelled tweets. Similarly, the word "BlueLivesMatter" is commonly found in negatively labelled tweets but not positively labelled tweets.
 
 <p align="center">
 <picture>
@@ -52,14 +51,18 @@ Building on the observation that some words are more suggesstive of a positive o
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/histograms.jpg" alt="drawing" width="850"/> 
 </picture>
 </p>
-Figure: Histograms of (a) the fraction of tweets labeled as positive or negative towards the BLM movement (b-d) the fraction of tweets the word "make", "alllivesmatter", and "justice", respectively, appeared in a negative or positive tweet compared only to the tweets in which that word appeared (given in the the title). The dashed red lines indicate the expected value if the histogram for that word followed the traning dataset histogram.
+Figure: Histograms of (a) the fraction of tweets labeled as positive or negative towards the BLM movement and (b-d) the fraction of tweets the words "make", "alllivesmatter", and "justice" appeared in a negative or positive tweet compared only to the tweets in which that word appeared. The dashed red lines indicate the expected value if the histogram for that word followed the training dataset histogram. The title contains the word used in the histogram and the number of tweets that that word appeared in.
 
-### Forming the dataset for classification - pruning the vocabulary
-We used a bag of words representation using the training vocabulary.
+### Forming the dataset for classification - extracting features and pruning the vocabulary
+The training dataset of tweets was transformed using a bag of words representation, where the features (columns in the dataframe) are all the unique words in the training dataset and each instance (rows of the dataframe) is one of the tweets from the dataset. Each entry of the dataframe then contains the number of times a particular word occurred in a particular tweet. 
 
-Using the motivation from the exploratory data analysis, we pruned the vocabulary to remove all words , retaining only the words that were strongly associated with . 
+In addition to the bag of words features, we also calculated the number of words and characters in each tweet and added them as features. This is helpful for removing very short tweets.
 
-Finally, there is an option in the code to remove tweets with too few words/characters (for example any tweets with less than 3 words or 10 characters) or too many words. In what follows, I only removed a tweet from the dataset if it had 0 words after pruning the vocabulary. 
+To prune the vocabulary, we used the insights obtained from the exploratory data analysis to remove any words that did not strongly deviate from the training dataset's histogram. This analysis is provided in section IV of the classifier.ipynb Python notebook.
+
+Formaly, we performed a hypothesis test comparing the histogram of each word in the vocabulary against the histogram of entire training dataset. The null hypothesis is that the histogram of the word is identical to the histogram of the training dataset, i.e. the word appears in 81.4% of positive tweets and 18.6% negative tweets. To compare the word's histogram against the training dataset histogram, we used a binomial test to compute a p-value and rejected the null hypothesis if the p-vlaue was less than 0.05. Note that a standard z-test or t-test would not be appropriate here, especially for infrequent words and words with histograms that did not substantially deviate from the null hypothesis.
+
+Finally, there is an option in the code to remove tweets with too few words/characters (e.g. one could drop any tweets with less than 3 words or 10 characters). In what follows, I only removed a tweet from the dataset if it had 0 words after pruning the vocabulary. 
 
 ### Comparison of classifiers
 Eight models were trained on the training dataset: KNN, Multinomial Naive Bayes, Log. Reg., SVM (Lin), SVM (rbf), Complement Naive Bayes, LDA, and Random Forest.
@@ -76,7 +79,7 @@ Eight models were trained on the training dataset: KNN, Multinomial Naive Bayes,
 |       LDA      |    0.82  |    0.86   |   0.94 |   0.90   |   109  |   228  |    94  |  1380  |  0.78  |
 |  Random Forest |    0.80  |    0.85   |   0.91 |   0.88   |   103  |   234  |   127  |  1347  |  0.72  |
 
-Here we see that no model performed significantly better than naively assigning all tweets a positive label (which would yield an accuracy of 80%). Logistic regression achieved the best performance on the held out test set with an accuracy of 83% and AUC of 0.79, but it was not substantially better than SVM (accuracy = 83%, auc = 0.75) or KNN (accuracy = 83%, AUC = 0.74). Naive Bayes had a low accuracy of 73%, but the highest precision at 92%, suggesting that an ensemble learning model may improve prediction accuracy.
+Here we see that no model performed significantly better than naively assigning all tweets a positive label (which would yield an accuracy of 81%). Logistic regression achieved the best performance on the held out test set with an accuracy of 83% and AUC of 0.79, but it was not substantially better than SVM (accuracy = 83%, auc = 0.75) or KNN (accuracy = 83%, AUC = 0.74). Naive Bayes had a low accuracy of 73%, but the highest precision at 92%, suggesting that an ensemble learning model may improve prediction accuracy.
 
 <p align="center">
 <picture>
