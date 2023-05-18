@@ -87,7 +87,7 @@ Figure: Precision-recall curve for all eight trained classifiers.
 
 
 ### How well do large language models work on sentiment analysis?
-Note that chatGPT had an accuracy of ~76% when the testing tweets were fed into a chatGPT prompt without any preprocessing. Although somewhat lower than the accuracy obtained in the trained models discussed above, this is still quite impressive given that this approach required no effort on my part - just copy and paste tweets into a chatGPT prompt (see image below for the prompt used). Moreover, chatGPT will provide some level of reasoning for its response which can sometimes be quite coherent (but, of course, always taken with a grain of salt).
+Note that chatGPT had an accuracy of ~76% when the testing tweets were fed into a chatGPT prompt without any preprocessing. Although somewhat lower than the accuracy obtained in the trained models discussed above, this is still quite impressive given that this approach required no effort on my part - just copy and paste tweets into a chatGPT prompt (see image below for the prompt used). Moreover, chatGPT will provide some level of reasoning for its response which can sometimes be quite coherent (but, of course, always taken with a grain of salt). In summary, the use of large language models for sentiment analysis seems promising and worthy of additional exploration.
 
 An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.
 <p align="center">
@@ -106,4 +106,4 @@ Examples of chatGPT prompts used to classify a tweet as being positive or negati
 
 
 ### Future Work
-Build ensemble classifiers, bi-gram, and tf-idf instead of bag of words.
+Build ensemble classifiers, tune a pre-trained large language model (e.g. chatGPT) for sentiment classication, bi-gram, and tf-idf instead of bag of words.
