@@ -42,7 +42,8 @@ In this figure, we observe that some words are frequently used in both positive 
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/wordCloud.jpg" alt="drawing" width="600"/> 
 </picture>
 </p>
-Figure: Word clouds for negatively and positively labelled tweets.
+
+*Figure: Word clouds for negatively and positively labelled tweets.*
 
 Building on the observation that some words are more suggesstive of a positive or negative label, we constructed histograms of the tweet labels for each word in the dataset. These individual word histograms are formed by first filtering the training dataset to keep only tweets that contained the word of interest and then calculating the frequency of these tweets that were labelled as positive or negative. We then compared these histograms against the histogram of tweet labels constructed using the entire training dataset. The main idea here is that if a single word's histogram significantly defers from the training dataset's histogram, then it may be a strong predictor of the tweet label. The following figure plots a few of these histograms against the histogram of the entire dataset. Here we see that some words, such as "make" which occurred in 183 tweets, has an identical histogram to the training dataset, so it will not be a strong predicitor of the tweets label. Other words, such as "alllivesmatter" and "justice" which occurred in 611 and 190 tweets, respectively, have histograms which strongly deviate from that of the training datasets histogram, indicating that they are strong predictors of a tweet being negative or positive.
 
@@ -51,7 +52,8 @@ Building on the observation that some words are more suggesstive of a positive o
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/histograms.jpg" alt="drawing" width="850"/> 
 </picture>
 </p>
-Figure: (a) Histogram of tweet labels for the entire training dataset. Here we see that 81.4% of tweets were labelled as positive. (b-d) Histogram of tweet labels for only the tweets that containes the words (b) "make", (c) "alllivesmatter", and (d) "justice". In all histograms, the horizontal dashed red lines are plotted at 0.814 for the positive column and at 0.186 for the negative column (i.e. the training datasets histogram values). The title contains the word used to construct the histogram and the number of tweets that the word appeared in.
+
+*Figure: (a) Histogram of tweet labels for the entire training dataset. Here we see that 81.4% of tweets were labelled as positive. (b-d) Histogram of tweet labels for only the tweets that containes the words (b) "make", (c) "alllivesmatter", and (d) "justice". In all histograms, the horizontal dashed red lines are plotted at 0.814 for the positive column and at 0.186 for the negative column (i.e. the training datasets histogram values). The title contains the word used to construct the histogram and the number of tweets that the word appeared in.*
 
 ### Forming the dataset for classification - extracting features and pruning the vocabulary
 The training dataset of tweets was transformed using a bag of words representation, where the features (columns in the dataframe) are the unique words in the training dataset and each instance (rows of the dataframe) is one of the tweets from the dataset. Each entry of the dataframe then contains the number of times a particular word occurred in a particular tweet. This yields a large and sparse matrix. The entire vocabulary after running the preprocessing_text function described above was 11,272.
@@ -83,7 +85,8 @@ Here we see that no model performed significantly better than naively assigning 
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="750"/> 
 </picture>
 </p>
-Figure: Precision-recall curve for all eight trained classifiers.
+
+*Figure: Precision-recall curve for all eight trained classifiers.*
 
 
 ### How well do large language models work on sentiment analysis?
@@ -95,15 +98,16 @@ Note that chatGPT had an accuracy of ~76% when the testing tweets were fed into 
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt.png" alt="drawing" width="600"/> 
 </picture>
 </p>
-Figure: An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.
 
+*Figure: An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.*
 
 <p align="center">
 <picture>
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt_individual_tweets.png" alt="drawing" width="600"/> 
 </picture>
 </p>
-Figure: Examples of chatGPT prompts used to classify a tweet as being positive or negative toward the #BLM movement and provide justification for its answer.
+
+*Figure: Examples of chatGPT prompts used to classify a tweet as being positive or negative toward the #BLM movement and provide justification for its answer.*
 
 ### Future Work
 Build ensemble classifiers, tune a pre-trained large language model (e.g. chatGPT) for sentiment classication, bi-gram, and tf-idf instead of bag of words.
