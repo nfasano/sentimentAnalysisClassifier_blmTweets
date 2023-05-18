@@ -42,7 +42,7 @@ In this figure, we observe that some words are frequently used in both positive 
 <img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/wordCloud.jpg" alt="drawing" width="600"/> 
 </picture>
 </p>
-***Figure:** Word clouds for negatively and positively labelled tweets.*
+* **Figure:** Word clouds for negatively and positively labelled tweets.*
 
 Building on the observation that some words are more suggesstive of a positive or negative label, we constructed histograms of the tweet labels for each word in the dataset. These individual word histograms are formed by first filtering the training dataset to keep only tweets that contained the word of interest and then calculating the frequency of these tweets that were labelled as positive or negative. We then compared these histograms against the histogram of tweet labels constructed using the entire training dataset. The main idea here is that if a single word's histogram significantly defers from the training dataset's histogram, then it may be a strong predictor of the tweet label. The following figure plots a few of these histograms against the histogram of the entire dataset. Here we see that some words, such as "make" which occurred in 183 tweets, has an identical histogram to the training dataset, so it will not be a strong predicitor of the tweets label. Other words, such as "alllivesmatter" and "justice" which occurred in 611 and 190 tweets, respectively, have histograms which strongly deviate from that of the training datasets histogram, indicating that they are strong predictors of a tweet being negative or positive.
 
