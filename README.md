@@ -73,7 +73,7 @@ Eight models were built on the training dataset (see "Section VI" of classifiers
 
 Here we see that no model performed significantly better than naively assigning all tweets a positive label (which would yield an accuracy of 81%). Logistic regression achieved the best performance on the held out test set with an accuracy of 83% and AUC of 0.79, but it was not substantially better than SVM (accuracy = 83%, auc = 0.75) or KNN (accuracy = 83%, AUC = 0.74). Naive Bayes had a low accuracy of 73%, but the highest precision at 92%, suggesting that an ensemble learning model may improve prediction accuracy.
 
-<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="95%"/> 
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/roc_curve.jpg" alt="drawing" width="85%"/> 
 
 *Figure caption: Precision-recall curve for all eight trained classifiers.*
 
@@ -87,7 +87,7 @@ Note that chatGPT had an accuracy of ~76% when the testing tweets were fed into 
 *Figure caption: An example of a chatGPT prompt used to classify a list of tweets as being positive or negative toward the #BLM movement.*
 
 
-<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt_individual_tweets.png" alt="drawing" width="95%"/> 
+<img src="https://github.com/nfasano/sentimentClassifier_blmTweets/blob/main/images/chatGPT_prompt_individual_tweets.png" alt="drawing" width="85%"/> 
 
 *Figure caption: Examples of chatGPT prompts used to classify a tweet as being positive or negative toward the #BLM movement and provide justification for its answer.*
 
